@@ -8,6 +8,13 @@ def api_root():
 		data = json.load(data_file)
 	return jsonify(data[2])
 
+@app.route('/comments/<int:comment_id>')
+def api_comments(comment_id):
+	with open('2015_01.json') as data_file:    
+		data = json.load(data_file)
+	return jsonify(data[comment_id])
+
+
 @app.route('/ohai')
 def api_ohai():
 	return 'ohai! ????'
